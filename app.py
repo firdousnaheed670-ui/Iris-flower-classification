@@ -5,6 +5,20 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Title
 st.title("🌸 Iris Flower Classification")
+# Sliders under the title
+st.subheader("Enter Flower Measurements")
+sepal_length = st.slider("Sepal length", 4.0, 8.0, 5.6)
+sepal_width  = st.slider("Sepal width", 2.0, 4.5, 3.79)
+petal_length = st.slider("Petal length", 1.0, 7.0, 1.80)
+petal_width  = st.slider("Petal width", 0.1, 2.5, 1.65)
+
+# Submit button
+if st.button("🔍 Submit"):
+    features = [[sepal_length, sepal_width, petal_length, petal_width]]
+    prediction = model.predict(features)[0]
+# Show result at the bottom
+st.subheader("Predicted Species")
+st.success(f"🌼 {prediction}")
 
 # Load dataset
 df = pd.read_csv("iris.csv")
@@ -17,17 +31,4 @@ y = df["species"]
 model = RandomForestClassifier()
 model.fit(X, y)
 
-# Sidebar inputs
-st.sidebar.header("Input Features")
-sepal_length = st.sidebar.slider("Sepal length", float(X["sepal_length"].min()), float(X["sepal_length"].max()))
-sepal_width  = st.sidebar.slider("Sepal width",  float(X["sepal_width"].min()),  float(X["sepal_width"].max()))
-petal_length = st.sidebar.slider("Petal length", float(X["petal_length"].min()), float(X["petal_length"].max()))
-petal_width  = st.sidebar.slider("Petal width",  float(X["petal_width"].min()),  float(X["petal_width"].max()))
 
-# Prediction
-prediction = model.predict([[sepal_length, sepal_width, petal_length, petal_width]])
-st.write("### 🌼 Predicted Species:", prediction[0])
-
-# Show dataset preview
-st.subheader("📊 Dataset Snapshot")
-st.write(df.head())
