@@ -14,7 +14,7 @@ X = df.drop("species", axis=1)
 y = df["species"]
 
 # Train model
-model = LogisticRegression()
+model = RandomForestClassifier()
 model.fit(X, y)
 
 # Sliders under the title
