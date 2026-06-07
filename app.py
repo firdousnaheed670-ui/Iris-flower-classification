@@ -5,6 +5,18 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Title
 st.title("🌸 Iris Flower Classification")
+
+# Load dataset
+df = pd.read_csv("iris.csv")
+
+# Features and target
+X = df.drop("species", axis=1)
+y = df["species"]
+
+# Train model
+model = RandomForestClassifier()
+model.fit(X, y)
+
 # Sliders under the title
 st.subheader("Enter Flower Measurements")
 sepal_length = st.slider("Sepal length", 4.0, 8.0, 5.6)
@@ -19,16 +31,5 @@ if st.button("🔍 Submit"):
 # Show result at the bottom
 st.subheader("Predicted Species")
 st.success(f"🌼 {prediction}")
-
-# Load dataset
-df = pd.read_csv("iris.csv")
-
-# Features and target
-X = df.drop("species", axis=1)
-y = df["species"]
-
-# Train model
-model = RandomForestClassifier()
-model.fit(X, y)
 
 
