@@ -24,10 +24,6 @@ sepal_width  = st.slider("Sepal width", 2.0, 4.5, 3.79)
 petal_length = st.slider("Petal length", 1.0, 7.0, 1.80)
 petal_width  = st.slider("Petal width", 0.1, 2.5, 1.65)
 
-# Submit button
-if st.button("🔍 Submit"):
-    features = [[sepal_length, sepal_width, petal_length, petal_width]]
-    prediction = model.predict(features)[0]
 # Prediction
 prediction = model.predict([[sepal_length, sepal_width, petal_length, petal_width]])
 st.write("### 🌼 Predicted Species:", prediction[0])
