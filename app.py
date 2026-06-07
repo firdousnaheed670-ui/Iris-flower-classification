@@ -14,7 +14,7 @@ X = df.drop("species", axis=1)
 y = df["species"]
 
 # Train model
-model = RandomForestClassifier()
+model = LogisticRegression()
 model.fit(X, y)
 
 # Sliders under the title
@@ -28,6 +28,13 @@ petal_width  = st.slider("Petal width", 0.1, 2.5, 1.65)
 if st.button("🔍 Submit"):
     features = [[sepal_length, sepal_width, petal_length, petal_width]]
     prediction = model.predict(features)[0]
+# Prediction
+prediction = model.predict([[sepal_length, sepal_width, petal_length, petal_width]])
+st.write("### 🌼 Predicted Species:", prediction[0])
+
+# Show dataset preview
+st.subheader("📊 Dataset Snapshot")
+st.write(df.head())
 # Show result at the bottom
 st.subheader("Predicted Species")
 st.success(f"🌼 {prediction}")
