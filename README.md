@@ -58,6 +58,7 @@ Model: Random Forest Classifier
 Accuracy: 100% on training dataset
 
 Interactive Predictions: Users can input custom values and instantly see classification results
+
 ---
 🔮 Future Improvements
 Add more ML models for comparison (e.g., SVM, Logistic Regression)
@@ -65,12 +66,17 @@ Add more ML models for comparison (e.g., SVM, Logistic Regression)
 Visualize decision boundaries
 
 Enhance UI with charts and plots
+
 ---
 🤝 Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
 ---
 📜 License
+
 This project is licensed under the MIT License.
+
 ---
 🙏 Acknowledgments
 scikit‑learn for ML algorithms
