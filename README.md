@@ -36,8 +36,6 @@ Iris-flower-classification/
 
 ---
 
----
-
 ## ⚙️ Installation
 Clone the repository and install dependencies:
 
